@@ -5,4 +5,5 @@ return {
 		gofumpt = true,
 	}},
 	{ pkg = "bash-language-server", lspConfig = "bashls", config = {}},
+	{ pkg = "arduino-language-server", lspConfig = "arduino-language-server", config = {}},
 }
