@@ -1,13 +1,5 @@
 local mr = require("mason-registry")
-
-local servers = {
-	{ pkg = "gopls", lspConfig = "gopls", config = {
-		analyses = { unusedparameters = true },
-		staticcheck = true,
-		gofumpt = true,
-	} },
-	{ pkg = "bash-language-server", lspConfig = "bashls", config = {}},
-}
+local servers = require("gvnnn.lsp.servers")
 
 mr.refresh(function()
   for _, srv in pairs(servers) do
