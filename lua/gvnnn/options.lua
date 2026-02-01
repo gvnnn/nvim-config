@@ -35,3 +35,6 @@ vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 5
 
 vim.opt.winborder = 'rounded'
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
