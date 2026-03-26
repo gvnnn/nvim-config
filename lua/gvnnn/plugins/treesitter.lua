@@ -1,10 +1,10 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
-	version = '*',
+	branch = 'main',
 	lazy = false,
 	build = ':TSUpdate',
-	opts = {
-		ensure_installed = {
+	config = function()
+		local parsers = {
 			"bash",
 			"diff",
 			"go",
@@ -12,9 +12,21 @@ return {
 			"json",
 			"lua",
 			"markdown",
+			"python",
 			"vim" ,
 			"vimdoc" ,
-		},
-		highlight = { enabled = true },
-	},
+		}
+		require('nvim-treesitter').setup()
+
+		vim.defer_fn(function()
+			require('nvim-treesitter').install(parsers):wait(300000)
+		end, 0)
+
+		vim.api.nvim_create_autocmd('FileType', {
+			pattern = parsers,
+			callback = function()
+				vim.treesitter.start()
+			end,
+		})
+	end,
 }

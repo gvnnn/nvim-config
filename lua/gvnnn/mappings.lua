@@ -24,6 +24,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- jump to definition in a vertically-split window
 vim.keymap.set("n", '<C-w>e', '<C-w>v<C-]>')
+-- jump to definition in a horizontally-split window
+vim.keymap.set("n", '<C-w>f', '<C-w>s<C-]>')
 
 -- paste without overwriting the unnamed register
 vim.keymap.set("x", "<leader>p", [["_dP]])
